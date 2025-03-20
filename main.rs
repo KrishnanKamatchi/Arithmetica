@@ -11,7 +11,7 @@ fn main() {
     let tokens = tokenize(input);
     let expr = parse(&tokens);
     let result = eval(&expr);
-    println!("Result: {}", result); // Output should be 21
+    println!("Result: {}", result);
 }
 
 fn eval(expr: &Expr) -> i32 {
@@ -114,7 +114,7 @@ enum Token {
     Divide,
     LParen,
     RParen,
-    EOF, // End of file/input
+    EOF,
 }
 
 fn tokenize(input: &str) -> Vec<Token> {
@@ -141,7 +141,7 @@ fn tokenize(input: &str) -> Vec<Token> {
             '/' => tokens.push(Token::Divide),
             '(' => tokens.push(Token::LParen),
             ')' => tokens.push(Token::RParen),
-            _ if c.is_whitespace() => continue, // Ignore whitespace
+            _ if c.is_whitespace() => continue,
             _ => panic!("Unknown character: {}", c),
         }
     }
